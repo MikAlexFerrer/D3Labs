@@ -4,18 +4,19 @@ var svg = d3.select("#chart-area").append("svg")
     .attr("width", 400)
     .attr("height", 400);
 
-var circles = svg.selectAll("circle")
+var rectangles = svg.selectAll("circle")
     .data(data);
 
 for (let i = 0; i < data.length; i++)
 {
-	circles.enter()
+	rectangles.enter()
 		.append("circle")
-			.attr("cx", (d, i) => {
+			.attr("x", (d, i) => {
 				return (i * 50) + 25;
 			})
-			.attr("cy", 250)
-			.attr("r", (d)=> {return d;})
+			.attr("y", 40)
+			.attr("width", 40)
+			.attr("height", (d)=> {return d;})
 			.attr("fill", "green");
 }
 
